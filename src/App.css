@@ -1,0 +1,48 @@
+/** Mobile first approach */
+.responsive-two-column-grid {
+  display: block;
+}
+
+.responsive-two-column-grid > * {
+  padding: 1rem;
+}
+/** If screen width is 768px or greater, render 2 columns */
+@media (min-width: 768px) {
+  h1 {
+    display: grid; /** Using CSS native grid here for fun. */
+    justify-content: center;
+  }
+
+  .responsive-two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/** Button with tooltip without JavaScript */
+.submit-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: #008000;
+  color: white;
+  cursor: pointer;
+  position: relative; /** Required for tooltip */
+}
+.submit-btn:hover {
+  background-color: #006400;
+}
+.submit-btn:hover:after {
+  content: attr(data-tooltip);
+  position: absolute; /** Required for tooltip */
+  width: 5rem;
+  left: 100%;
+  margin-left: 5px;
+  background: rgba(42, 97, 217, 0.54);
+  padding: 0.25rem;
+  border-radius: 3px;
+}
+
+[data-cat] {
+  text-transform: capitalize;
+}
