@@ -4,7 +4,7 @@
   "description": "Vite React SSR Express.js Fetch Data",
   "type": "module",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node server-dev.js",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
     "build:api": "vite build --ssr src/api.ts --outDir dist/api",

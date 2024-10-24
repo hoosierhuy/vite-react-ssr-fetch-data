@@ -9,9 +9,7 @@ import { fileURLToPath } from 'url'
 import express from 'express'
 
 // Environment variables declaration
-const isProduction = process.env.NODE_ENV === 'production'
 const port = process.env.PORT || 5173
-const base = process.env.BASE || '/'
 
 // Create express/http server
 const app = express()
@@ -52,7 +50,7 @@ app.use('*all', async (req, res) => {
     res.status(200).set({ 'Content-Type': 'text/html' }).send(productionHtml)
   } catch (error) {
     console.error(error.stack)
-    res.status(500).end(error.stack)
+    res.status(500).end(error.message)
   }
 })
 
