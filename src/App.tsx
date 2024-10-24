@@ -32,25 +32,25 @@ const App = ({ data }: AppProps) => {
           <h2>Fetching Products from API</h2>
           {data.map((product: Product) => (
             <div className="product-card" key={product.id}>
-              <p>Product Name: {product.title}</p>
-              <p>Brand: {product.brand}</p>
-              <p data-cat>Category: {product.category}</p>
-              <p>Price: ${product.price}</p>
-              <p>
+              <div>Product Name: {product.title}</div>
+              <div>Brand: {product.brand}</div>
+              <div data-cat>Category: {product.category}</div>
+              <div>Price: ${product.price}</div>
+              <div>
                 <img
                   src={product.thumbnail}
                   alt="Not an image of taylor swift"
                 />
-              </p>
+              </div>
             </div>
           ))}
         </section>
         <section>
           <h2>Post to API</h2>
           <div className="post-to-api-card">
-            <p>
+            <div>
               You can also view the network response in the Browser's Console.
-            </p>
+            </div>
             <button
               type="submit"
               data-tooltip="Click to test POST request"
