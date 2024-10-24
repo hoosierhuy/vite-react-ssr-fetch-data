@@ -16,7 +16,7 @@ const App = ({ data }: AppProps) => {
   const [isError, setIsError] = useState<boolean>(false)
 
   return (
-    <main>
+    <div>
       <h1>React SSR App</h1>
       <div className="responsive-two-column-grid">
         <section>
@@ -77,7 +77,7 @@ const App = ({ data }: AppProps) => {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   )
 }
 
