@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 // Local imports
 import { postOneToApi } from './api'
@@ -12,17 +12,8 @@ interface AppProps {
 
 const App = ({ data }: AppProps) => {
   // Ensure hydration is complete before rendering
-  const [hydrated, setHydrated] = useState(false)
   const [jsonData, setJsonData] = useState<PostResponse | null>(null)
   const [isError, setIsError] = useState<boolean>(false)
-
-  useEffect(() => {
-    setHydrated(true)
-  }, [])
-
-  if (!hydrated) {
-    return null
-  }
 
   return (
     <main>
@@ -32,25 +23,25 @@ const App = ({ data }: AppProps) => {
           <h2>Fetching Products from API</h2>
           {data.map((product: Product) => (
             <div className="product-card" key={product.id}>
-              <div>Product Name: {product.title}</div>
-              <div>Brand: {product.brand}</div>
-              <div data-cat>Category: {product.category}</div>
-              <div>Price: ${product.price}</div>
-              <div>
+              <p>Product Name: {product.title}</p>
+              <p>Brand: {product.brand}</p>
+              <p data-cat>Category: {product.category}</p>
+              <p>Price: ${product.price}</p>
+              <p>
                 <img
                   src={product.thumbnail}
                   alt="Not an image of taylor swift"
                 />
-              </div>
+              </p>
             </div>
           ))}
         </section>
         <section>
           <h2>Post to API</h2>
           <div className="post-to-api-card">
-            <div>
+            <p>
               You can also view the network response in the Browser's Console.
-            </div>
+            </p>
             <button
               type="submit"
               data-tooltip="Click to test POST request"
