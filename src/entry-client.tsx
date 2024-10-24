@@ -1,5 +1,4 @@
 // Libraries imports
-import { StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
 // local imports
 import App from './App'
@@ -21,9 +20,4 @@ if (typeof window !== 'undefined') {
   console.info('after', data)
 }
 
-hydrateRoot(
-  document.getElementById('root') as HTMLElement,
-  <StrictMode>
-    <App data={data} />
-  </StrictMode>
-)
+hydrateRoot(document.getElementById('root') as HTMLElement, <App data={data} />)
