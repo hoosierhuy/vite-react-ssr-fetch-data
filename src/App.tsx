@@ -21,24 +21,23 @@ const App = ({ data }: AppProps) => {
         <section>
           <h2>Fetching Products from API</h2>
           {data.map((product: Product) => (
-            <div key={product.id}>
+            <div className="product-card" key={product.id}>
               <p>Product Name: {product.title}</p>
               <p>Brand: {product.brand}</p>
               <p data-cat>Category: {product.category}</p>
-              <p>Price: {product.price}</p>
+              <p>Price: ${product.price}</p>
               <p>
                 <img
                   src={product.thumbnail}
                   alt="Not an image of taylor swift"
                 />
               </p>
-              <hr />
             </div>
           ))}
         </section>
         <section>
           <h2>Post to API</h2>
-          <div>
+          <div className="post-to-api-card">
             <p>
               You can also view the network response in the Browser's Console.
             </p>
