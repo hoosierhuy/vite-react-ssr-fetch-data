@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // Local imports
 import { postOneToApi } from './api'
@@ -11,8 +11,18 @@ interface AppProps {
 }
 
 const App = ({ data }: AppProps) => {
+  // Ensure hydration is complete before rendering
+  const [hydrated, setHydrated] = useState(false)
   const [jsonData, setJsonData] = useState<PostResponse | null>(null)
   const [isError, setIsError] = useState<boolean>(false)
+
+  useEffect(() => {
+    setHydrated(true)
+  }, [])
+
+  if (!hydrated) {
+    return null
+  }
 
   return (
     <main>
