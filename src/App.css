@@ -1,0 +1,64 @@
+:root {
+  --one-rem: 1rem;
+  --border-radius-standard: 6px;
+}
+
+/** Mobile first approach */
+.responsive-two-column-grid {
+  display: block;
+}
+
+.product-card,
+.post-to-api-card {
+  border-radius: var(--border-radius-standard);
+  box-shadow: rgba(101, 106, 118, 0.15) 0px 0px 0px 1px,
+    rgba(101, 106, 118, 0.1) 0px 2px 3px 0px,
+    rgba(101, 106, 118, 0.2) 0px 8px 16px -10px;
+  margin: var(--one-rem) 0;
+  padding: var(--one-rem);
+}
+
+.responsive-two-column-grid > * {
+  padding: var(--one-rem);
+}
+/** If screen width is 768px or greater, render 2 columns */
+@media (min-width: 768px) {
+  h1 {
+    display: grid; /** Using CSS native grid here for fun. */
+    justify-content: center;
+  }
+
+  .responsive-two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/** Button with tooltip without JavaScript */
+.submit-btn {
+  border: none;
+  border-radius: var(--border-radius-standard);
+  padding: 0.5rem;
+  background-color: #008000;
+  color: white;
+  cursor: pointer;
+  position: relative; /** Required for tooltip */
+}
+.submit-btn:hover {
+  background-color: #006400;
+}
+/** Tooltip */
+.submit-btn:hover:after {
+  content: attr(data-tooltip);
+  position: absolute; /** Required for tooltip */
+  width: 5rem;
+  left: 100%;
+  margin-left: 5px;
+  background: rgba(42, 97, 217, 0.54);
+  padding: 0.25rem;
+  border-radius: var(--border-radius-standard);
+}
+
+[data-cat] {
+  text-transform: capitalize;
+}
