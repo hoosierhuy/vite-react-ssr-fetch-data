@@ -5,13 +5,11 @@ import { hydrateRoot } from 'react-dom/client'
 import App from './App'
 import { Product } from './interfaces'
 
-let data: Product[]
+let data
 
 if (typeof window !== 'undefined') {
   data = window.__data__
   console.info('after', window, data)
-} else {
-  ;<p>Nope!</p>
 }
 
 hydrateRoot(
