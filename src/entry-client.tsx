@@ -11,7 +11,7 @@ if (typeof window !== 'undefined') {
   data = window.__data__
   console.info('after', window, data)
 } else {
-  ;<p>{window.__data__} is not defined</p>
+  ;<p>Nope!</p>
 }
 
 hydrateRoot(
