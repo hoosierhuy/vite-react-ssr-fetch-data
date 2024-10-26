@@ -37,7 +37,6 @@ app.use('*', async (req, res) => {
     const { getMultipleProducts } = await import('./dist/api/api.js')
     const data = await getMultipleProducts()
     const script = `<script>window.__data__=${JSON.stringify(data)}</script>`
-    console.log('data', data)
     const productionHtml = productionTemplate.replace(
       `<!--ssr-outlet-->`,
       `${render(data)} ${script}`
