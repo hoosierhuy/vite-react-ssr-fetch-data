@@ -8,9 +8,10 @@ import { Product } from './interfaces'
 let data: Product[]
 
 if (typeof window !== 'undefined') {
-  // The data variable below will contain the data that was requested server-side, and passed to the client-side as a prop, in the <App data={data} /> component.
-  data = window.__data__ || []
+  data = window.__data__
   console.info('after', window, data)
+} else {
+  ;<p>{window.__data__} is not defined</p>
 }
 
 hydrateRoot(
