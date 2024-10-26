@@ -15,7 +15,7 @@ const vite = await createServer({
 
 app.use(vite.middlewares)
 
-app.use('*all', async (req, res) => {
+app.use('*', async (req, res) => {
   const url = req.originalUrl
 
   try {

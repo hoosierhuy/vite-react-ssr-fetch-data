@@ -26,7 +26,7 @@ const compression = (await import('compression')).default
 app.use(compression())
 
 // Serve HTML
-app.use('*all', async (req, res) => {
+app.use('*', async (req, res) => {
   try {
     const productionTemplate = fs.readFileSync(
       './dist/client/index.html',
