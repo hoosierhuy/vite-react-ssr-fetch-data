@@ -13,14 +13,9 @@ import { Product } from './interfaces'
 
 let data: Product[] = []
 
-if (process.env.BROWSER) {
-  global.window = {}
-}
-
 if (typeof window !== 'undefined') {
-  // The data variable below will contain the data that was requested server-side, and passed to the client-side as a prop, in the <App data={data} /> component.
   data = window.__data__ || []
-  console.info('after', data)
+  console.info('after', window)
 }
 
 hydrateRoot(
