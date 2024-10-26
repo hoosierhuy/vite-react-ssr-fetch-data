@@ -13,11 +13,11 @@ interface AppProps {
 const App = ({ data }: AppProps) => {
   const [jsonData, setJsonData] = useState<PostResponse | null>(null)
   const [isError, setIsError] = useState<boolean>(false)
-
+  console.log('component data', data)
   return (
     <main>
       <h1>React SSR App</h1>
-      <div className="responsive-two-column-grid">
+      {/* <div className="responsive-two-column-grid">
         <section>
           <h2>Fetching Products from API</h2>
           {data.map((product: Product) => (
@@ -75,7 +75,7 @@ const App = ({ data }: AppProps) => {
             )}
           </div>
         </section>
-      </div>
+      </div> */}
     </main>
   )
 }
