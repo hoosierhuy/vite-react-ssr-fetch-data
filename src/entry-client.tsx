@@ -1,17 +1,21 @@
 // Libraries imports
-import { StrictMode, useEffect, useState } from 'react'
+import { StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
 // local imports
 import App from './App'
 import { Product } from './interfaces'
 
-interface CustomWindow extends Window {
-  __data__?: Product[]
-}
+// interface CustomWindow extends Window {
+//   __data__?: Product[]
+// }
 
-declare let window: CustomWindow
+// declare let window: CustomWindow
 
 let data: Product[] = []
+
+if (process.env.BROWSER) {
+  global.window = {}
+}
 
 if (typeof window !== 'undefined') {
   // The data variable below will contain the data that was requested server-side, and passed to the client-side as a prop, in the <App data={data} /> component.
@@ -19,18 +23,9 @@ if (typeof window !== 'undefined') {
   console.info('after', data)
 }
 
-if (data.length > 0) {
-  hydrateRoot(
-    document.getElementById('root') as HTMLElement,
-    <StrictMode>
-      <App data={data} />
-    </StrictMode>
-  )
-} else {
-  hydrateRoot(
-    document.getElementById('root') as HTMLElement,
-    <StrictMode>
-      <p>Something went wrong</p>
-    </StrictMode>
-  )
-}
+hydrateRoot(
+  document.getElementById('root') as HTMLElement,
+  <StrictMode>
+    <App data={data} />
+  </StrictMode>
+)
